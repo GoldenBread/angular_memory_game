@@ -1,2 +1,21 @@
-memory Game
-{{ customFuncy() }}
+<p>
+    <a class="btn btn-primary btn-lg" href="javascript:;" ng-click="startNewGame()" role="button">Start new game</a>
+    Pair found : 0
+</p>
+<hr>
+<div class="row">
+    <div class="col-12 col-md-8">
+        <div style="width: 520px;">
+            <div ng-repeat="card in cardBoard track by $index" style="width: fit-content; float: left;">
+                <div style="height: 180px; width: 130px;">
+                    <img src="{{ card.currentFaceUrl }}" alt="{{ card.name }}" id="{{ card.id }}" ng-click="cardClick(card, $index)" height="180" width="130" ng-hide="card.hidden">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-4">
+        <div ng-repeat="card in discardCards" style="width: fit-content; float: left;">
+            <img src="{{ getCardUrl(card) }}" alt="{{ card.name }}" id="{{ card.id }}" height="180" width="130">
+        </div>
+    </div>
+</div>

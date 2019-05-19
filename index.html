@@ -23,8 +23,8 @@
   </div>
   -->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#/!">Navbar</a>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="#/!">Memory</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,21 +40,12 @@
       </ul>
     </div>
   </nav>
-    
 
-  <div>
-    <p>Name : <input type="text" ng-model="name"></p>
-    <h1>Hello {{name}}</h1>
-    <h1>=> {{customFunc()}}</h1>
-
-
-    <input style="background-color:{{myCol}}" ng-model="myCol">
-    <input type="button" ng-click="myCol = 'blue'" value="blue" name="blue">
-    <input type="button" ng-click="myCol = 'red'" value="red" name="red">
-
-  </div>
-
-  <div ng-view></div>
+  <main role="main" class="container">
+    <div class="jumbotron">
+      <div ng-view></div>
+    </div>
+  </main>
 
   <script src="module.js"></script>
   <script src="routes.js"></script>
