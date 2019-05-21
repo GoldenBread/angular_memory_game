@@ -9,8 +9,6 @@ app.controller("memoryGameCtrl", function($scope, $timeout) {
         new Card("Lightning", "lightning", 6), 
         new Card("Gabranth", "gabranth", 7)
     ];
-
-    //$scope.cardBack = new Card("assets/card_back.png", "Dissidia duodecim", "dissidia", -1);
     
     $scope.cardBoard = [];
 
@@ -20,6 +18,8 @@ app.controller("memoryGameCtrl", function($scope, $timeout) {
     $scope.drawnCardIndex = null;
 
     $scope.animation = false;
+
+    $scope.pairFound = 0;
 
 
     $scope.generateBoard = function() {
@@ -34,6 +34,7 @@ app.controller("memoryGameCtrl", function($scope, $timeout) {
     $scope.startNewGame = function() {
         $scope.generateBoard();
         $scope.discardCards = [];
+        $scope.pairFound = 0;
     };
     
     $scope.cardClick = function(card, cardIndex) {
@@ -61,6 +62,8 @@ app.controller("memoryGameCtrl", function($scope, $timeout) {
                 $scope.drawnCardIndex = -1;
                 $scope.animation = false;
             }, 1500);
+
+            ++$scope.pairFound;
 
         } else {
             console.log("cartes pas egales. Current card: " + card.id + ". Previous card: " + $scope.drawnCard.id +  " index " + cardIndex);
